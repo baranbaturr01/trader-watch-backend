@@ -3,6 +3,8 @@
 
 .env
 
-.node_modules
+/node_modules
 
 /data
+
+/package-lock.json
