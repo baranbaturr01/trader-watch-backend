@@ -1,4 +1,5 @@
 const request = require("request");
+const cheerio = require("cheerio");
 
 module.exports = (req, res, next) => {
     const borsalar = [];
@@ -93,12 +94,14 @@ module.exports = (req, res, next) => {
                 borsaDegisim[i] = '+' + borsaDegisim[i];
             }
 
-            borsaObject = new BorsaFiyatlari(
-                borsaName[i][0],
-                borsaFiyat[i],
-                borsaDegisim[i] + ' %',
-                borsaZaman[i][0]
-            );
+            borsaObject =
+            {
+                Name: borsaName[i][0],
+                Fiyat: borsaFiyat[i],
+                Degisim: borsaDegisim[i] + ' %',
+                Zaman: borsaZaman[i][0]
+
+            }
             result.push(borsaObject);
         }
 
